@@ -8,7 +8,7 @@ The daughterboard exposes 5 V-level digital IOs and a green LED:
 |  IO1  |  GPIO18 | 5 V logic, idles HIGH   |
 |  IO2  |  GPIO27 | 5 V logic, idles HIGH   |
 |  IO3  |  GPIO22 | 5 V logic, idles HIGH   |
-| LED G |  GPIO4  | On-board green LED      |
+| STATUS |  GPIO4 | Green LED               |
 
 > ⚠️ **Caution**  
 > These lines are level-shifted to **5 V** on the terminal side. Treat them as digital IO, not power. Do not feed 5 V directly into bare Pi GPIOs elsewhere. Keep load current small (a few mA typical) or drive a relay/SSR via a proper driver.
