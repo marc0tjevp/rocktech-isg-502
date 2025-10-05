@@ -10,7 +10,7 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 
 ---
 
-## Front Panel Pinout (Rocktech ISG-502)
+## Front Panel Pinout
 
 | Pin  | Label  | Function                        | How to control                         |
 |------|--------|---------------------------------|-----------------------------------------|
