@@ -10,6 +10,31 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 
 ---
 
+## Front Panel Pinout (Rocktech ISG-502)
+
+| Pin  | Label  | Function                        | How to control                         |
+|------|--------|---------------------------------|-----------------------------------------|
+| IO0  | GPIO17 | User GPIO (5V logic)            | `gpioset gpiochip0 17=0/1`              |
+| IO1  | GPIO18 | User GPIO (5V logic)            | `gpioset gpiochip0 18=0/1`              |
+| IO2  | GPIO27 | User GPIO (5V logic)            | `gpioset gpiochip0 27=0/1`              |
+| IO3  | GPIO22 | User GPIO (5V logic)            | `gpioset gpiochip0 22=0/1`              |
+| GND  | –      | Ground                          | Common ground                           |
+| B0   | RS485- | RS-485 differential pair        | `/dev/ttyWCH0` with GPIO5 for DE/RE     |
+| A0   | RS485+ | RS-485 differential pair        | `/dev/ttyWCH0` with GPIO5 for DE/RE     |
+| GND  | –      | Ground                          | Common ground                           |
+| B2   | RX1    | UART1 RX (from CH432)           | `/dev/ttyWCH1`                          |
+| A2   | TX1    | UART1 TX (from CH432)           | `/dev/ttyWCH1`                          |
+| B1   | RX0    | UART0 RX (from CH432)           | `/dev/ttyWCH0`                          |
+| A1   | TX0    | UART0 TX (from CH432)           | `/dev/ttyWCH0`                          |
+| –    | STATUS | Status LED (GPIO4)              | `gpioset gpiochip0 4=0/1`               |
+
+**Notes:**
+- All IO pins are 5 V logic.
+- RS-485 DE/RE is tied to **GPIO5** (controlled by oneshot service).
+- `/dev/ttyWCH0` and `/dev/ttyWCH1` appear after loading the `ch432` kernel module.
+
+---
+
 ## Device setup
 
 **Device:** Rocktech ISG-502 (Raspberry Pi 4B inside)  
