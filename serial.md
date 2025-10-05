@@ -1,4 +1,4 @@
-# — Serial (CH432) on Rocktech ISG-502
+# Serial (CH432) on Rocktech ISG-502
 
 The Rocktech ISG-502 has a CH432 SPI → Dual UART chip on its daughterboard.  
 With the out-of-tree `ch432` driver, we can expose two serial ports:
