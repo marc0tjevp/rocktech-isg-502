@@ -64,6 +64,9 @@ gpioset gpiochip0 4=0
 
 Create a oneshot that sets IOs LOW (and keeps LED off) on boot. Adjust to your needs.
 
+> ⚠️ **Caution**  
+> Be aware that the pins will be active on boot and will stay at 5V until the service is loaded.
+
 ```
 # /etc/systemd/system/gpio-defaults.service
 [Unit]
