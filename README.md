@@ -43,4 +43,5 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 
 4. Build drivers  
    - [hwclock.md](./hwclock.md) → RX8010 RTC module  
-   - [serial.md](./serial.md) → CH432 UART driver  
+   - [serial.md](./serial.md) → CH432 UART driver
+   - [gpio.md](./gpio.md) → IO0-IO3 and Status LED
