@@ -1,6 +1,6 @@
 # RX8010 RTC on Rocktech ISG-502
 
-The daughterboard provides a **Seiko/EPSON RX8010 RTC** on I²C bus 1 at address `0x32`.
+The daughterboard provides a **Seiko RX8010 RTC** on I²C bus 1 at address `0x32`.
 
 ---
 
@@ -26,33 +26,78 @@ The daughterboard provides a **Seiko/EPSON RX8010 RTC** on I²C bus 1 at address
    clean: ; $(MAKE) -C $(KDIR) M=$(PWD) clean
    ```
 
-4. Build + insert:  
+4. Build + install:  
    ```bash
    make
-   sudo modprobe regmap_i2c
-   sudo insmod ./rtc-rx8010.ko
+   sudo mkdir -p /lib/modules/$(uname -r)/extra
+   sudo cp rtc-rx8010.ko /lib/modules/$(uname -r)/extra/
+   sudo depmod -a
+   ```
+
+5. Load dependencies and module:  
+   ```bash
+   echo regmap_i2c | sudo tee /etc/modules-load.d/regmap_i2c.conf
+   echo rtc_rx8010 | sudo tee /etc/modules-load.d/rtc_rx8010.conf
    ```
 
 ---
 
-## Bind the device
+## Bind with Device Tree (persistent)
 
-1. Detect chip:  
-   ```bash
-   sudo i2cdetect -y 1
-   # → should show 0x32
+Instead of manually instantiating with `echo new_device`, use a DT overlay so the kernel binds the chip at boot.
+
+1. Create overlay source `/boot/overlays/rx8010.dtso`:  
+   ```dts
+   /dts-v1/;
+   /plugin/;
+   / {
+     compatible = "brcm,bcm2711";
+     fragment@0 {
+       target = <&i2c1>;
+       __overlay__ {
+         #address-cells = <1>;
+         #size-cells = <0>;
+         status = "okay";
+         rtc@32 {
+           compatible = "epson,rx8010";
+           reg = <0x32>;
+         };
+       };
+     };
+   };
    ```
 
-2. Bind:  
+2. Compile it:  
    ```bash
-   echo rx8010 0x32 | sudo tee /sys/class/i2c-adapter/i2c-1/new_device
+   sudo apt-get install -y device-tree-compiler
+   sudo dtc -@ -I dts -O dtb -o /boot/overlays/rx8010.dtbo /boot/overlays/rx8010.dtso
    ```
 
-3. Verify:  
+3. Enable in `/boot/config.txt`:  
    ```bash
-   ls -l /dev/rtc*
-   sudo hwclock -r
+   echo "dtoverlay=rx8010" | sudo tee -a /boot/config.txt
    ```
+
+4. Reboot:  
+   ```bash
+   sudo reboot
+   ```
+
+---
+
+## Verify
+
+After reboot, the kernel should automatically register the RTC:  
+```bash
+dmesg -T | grep -i rx8010
+ls -l /dev/rtc*
+sudo hwclock -r
+```
+
+Expected output:  
+- `rtc-rx8010` registered as `rtc0`  
+- `/dev/rtc0` present  
+- `hwclock` reads the correct time
 
 ---
 
