@@ -1,5 +1,14 @@
 # Rocktech ISG-502 — RTC (RX8010) & CH432 UART Setup
 
+![PXL_20251004_203513867](https://github.com/user-attachments/assets/6ff13c6a-ba7f-4e6e-8f0f-ab2f130f6393)
+
+This device can be found on eBay for ~25-40eur. It's described as being a "Industrial Smart Gateway".
+Since it has a Pi 4B inside it's a pretty good deal to pick one up. But since it came with an interesting daughter board, I started poking at it.
+
+[This Hackaday post](https://hackaday.io/project/195148-reverse-engineering-rocktech-isg-502) has a lot of information on the hardware.
+
+---
+
 **Device:** Rocktech ISG-502 (Raspberry Pi 4B inside)  
 **OS:** Raspberry Pi OS **Bookworm** Lite, 64-bit  
 **Kernel:** `6.12.47+rpt-rpi-v8`
