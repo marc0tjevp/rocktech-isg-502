@@ -2,7 +2,9 @@
 
 **Device:** Rocktech ISG-502 (Raspberry Pi 4B inside)  
 **OS:** Raspberry Pi OS **Bookworm** Lite, 64-bit  
-**Kernel (example):** `6.12.47+rpt-rpi-v8`
+**Kernel:** `6.12.47+rpt-rpi-v8`
+
+> Mainline 6.12 was too new and lacked a working rtc-rx8010 in-tree so building fails.
 
 This README captures exactly what worked: commands, configs, and Python helper scripts.
 
@@ -141,7 +143,7 @@ The UART registers are 16550-style:
 
 > The board exposes two UART headers on the front:  
 > **A2/B2 = RS-232**, **A1/B1 = RS-485** (plus GND).  
-> We confirmed the UART cores work via **internal loopback**.
+> UART cores work via **internal loopback**.
 
 ---
 
