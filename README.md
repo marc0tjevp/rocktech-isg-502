@@ -46,7 +46,7 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 
 ---
 
-## Install flow
+## Install
 
 1. Flash image  
    - Download: `2023-05-03-raspios-bullseye-arm64-lite.img.xz`  
@@ -70,3 +70,21 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
    - [hwclock.md](./hwclock.md) → RX8010 RTC module  
    - [serial.md](./serial.md) → CH432 UART driver
    - [gpio.md](./gpio.md) → IO0-IO3 and Status LED
+
+
+5. Collector service  
+   - Clone and install the lightweight data collector service:  
+     [rtk-collector](https://github.com/marc0tjevp/rtk-collector)  
+   - Publishes heartbeat, system metrics, and GPIO state to MQTT as a service.
+
+## Next steps
+
+The current setup covers RTC, UART, GPIO, and a collector service.  
+Planned improvements and experiments include:
+
+- Adding RS-232/RS-485 data publishing to MQTT via the collector.  
+- Hooking up physical sensors (temperature, humidity, etc.) to IO0–IO3.  
+- Integrating Grafana for dashboards.  
+- Exploring control topics (e.g. toggling GPIO outputs from MQTT).  
+
+Contributions, ideas, and tests are welcome.
