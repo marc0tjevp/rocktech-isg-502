@@ -8,7 +8,7 @@ With the out-of-tree `ch432` driver, we can expose two serial ports:
 
 ---
 
-## 1. Build and install the driver
+## Build and install the driver
 
 ```
 sudo apt-get install -y git build-essential raspberrypi-kernel-headers
@@ -36,7 +36,7 @@ echo ch432 | sudo tee /etc/modules-load.d/ch432.conf
 
 ---
 
-## 2. Device Tree Overlay
+## Device Tree Overlay
 
 Create `/boot/overlays/ch432.dtso`:
 
@@ -83,7 +83,7 @@ sudo reboot
 
 ---
 
-## 3. Verify
+## Verify
 
 ```
 dmesg -T | grep -i ch43
@@ -98,7 +98,7 @@ Expected:
 
 ---
 
-## 4. RS-485 DE Control (GPIO5)
+## RS-485 DE Control (GPIO5)
 
 Install gpiod and set DE default LOW (receive mode):
 
@@ -130,7 +130,7 @@ sudo systemctl enable --now rs485-de.service
 
 ---
 
-## 5. Usage
+## Usage
 
 - **RS-232**: use `/dev/ttyWCH1` directly with `stty` or `minicom`.  
 - **RS-485**: toggle DE (GPIO5) manually before/after TX:
