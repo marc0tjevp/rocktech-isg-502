@@ -34,8 +34,6 @@ Enable autoload at boot:
 echo ch432 | sudo tee /etc/modules-load.d/ch432.conf
 ```
 
----
-
 ## Device Tree Overlay
 
 Create `/boot/overlays/ch432.dtso`:
@@ -81,8 +79,6 @@ echo "dtoverlay=ch432" | sudo tee -a /boot/config.txt
 sudo reboot
 ```
 
----
-
 ## Verify
 
 ```
@@ -95,8 +91,6 @@ Expected:
 /dev/ttyWCH0
 /dev/ttyWCH1
 ```
-
----
 
 ## RS-485 DE Control (GPIO5)
 
@@ -128,8 +122,6 @@ Enable it:
 sudo systemctl enable --now rs485-de.service
 ```
 
----
-
 ## Usage
 
 - **RS-232**: use `/dev/ttyWCH1` directly with `stty` or `minicom`.  
@@ -140,5 +132,3 @@ sudo systemctl enable --now rs485-de.service
   ```
 
 Later this can be automated via `ioctl` or a wrapper script.
-
----
