@@ -33,8 +33,6 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 - RS-485 DE/RE is tied to **GPIO5** (controlled by oneshot service).
 - `/dev/ttyWCH0` and `/dev/ttyWCH1` appear after loading the `ch432` kernel module.
 
----
-
 ## Device setup
 
 **Device:** Rocktech ISG-502 (Raspberry Pi 4B inside)  
@@ -43,8 +41,6 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 
 > ✅ This kernel is stable for both RX8010 RTC and CH432 UART drivers.  
 > ❌ Newer kernels (6.6/6.12) break out-of-tree builds.
-
----
 
 ## Install
 
