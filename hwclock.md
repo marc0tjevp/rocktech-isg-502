@@ -40,8 +40,6 @@ The daughterboard provides a **Seiko RX8010 RTC** on I²C bus 1 at address `0x32
    echo rtc_rx8010 | sudo tee /etc/modules-load.d/rtc_rx8010.conf
    ```
 
----
-
 ## Bind with Device Tree (persistent)
 
 Instead of manually instantiating with `echo new_device`, use a DT overlay so the kernel binds the chip at boot.
@@ -83,8 +81,6 @@ Instead of manually instantiating with `echo new_device`, use a DT overlay so th
    sudo reboot
    ```
 
----
-
 ## Verify
 
 After reboot, the kernel should automatically register the RTC:  
@@ -98,8 +94,6 @@ Expected output:
 - `rtc-rx8010` registered as `rtc0`  
 - `/dev/rtc0` present  
 - `hwclock` reads the correct time
-
----
 
 ## First sync
 
