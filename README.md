@@ -11,8 +11,9 @@ extra I/O including RS-232/RS-485 and an RX8010 RTC.
 ---
 
 ## Front Panel Pinout
+[connectors.md](./connectors.md) → Connector types, pin counts, and AliExpress equivalents.
 
-| Pin  | Label  | Function                        | How to control                         |
+| Pin  | Label  | Function                        | How to control                          |
 |------|--------|---------------------------------|-----------------------------------------|
 | IO0  | GPIO17 | User GPIO (5V logic)            | `gpioset gpiochip0 17=0/1`              |
 | IO1  | GPIO18 | User GPIO (5V logic)            | `gpioset gpiochip0 18=0/1`              |
