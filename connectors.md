@@ -18,8 +18,14 @@ This is a **push-in spring terminal** (orange release tabs) manufactured by **Gi
 ![PXL_20251010_100008444](https://github.com/user-attachments/assets/a6f2d68d-ef87-4781-bb7d-3a716ed47ea3)
 
 ### Serial
-To test interchangeability, I ordered a `15EDGK-3.5` connector from AliExpress.  
-It’s a **screw-type** version instead of push-in, but shares the same **3.5 mm pitch** and should mate correctly with the ISG-502 header.  
-I’ll update this section once verified.
+### Serial
+
+To test interchangeability, I ordered a `15EDGK-3.5` connector from AliExpress.
+It’s a screw-type version instead of push-in, but shares the same 3.5 mm pitch and mates correctly with the ISG-502 header.
 
 <img width="267" height="256" alt="image" src="https://github.com/user-attachments/assets/23590490-52e3-435a-8c82-189813f57a94" />
+
+
+The fit is good and secure, so `15EDGK-3.5` can be used as a compatible serial/front-panel connector for the Rocktech ISG-502.
+
+<img height="256" alt="image" src="https://github.com/user-attachments/assets/833f2f36-0799-4bbf-9910-c5e88ef380ca" />
